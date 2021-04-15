@@ -26,17 +26,17 @@ var config = {
   // Your NUSSTU ID, such as a0012345
   student_id: 'e0003936',
   // Module you are claiming hours for, such as CS1101S
-  module: 'CS1010',
+  module: 'CS2030S',
   // Format: YYYY/MM/DD
   // Note: Month is from 0-11, Date is from 1-31
   // This should be the semester's week 1. For AY14/15 Sem 1, it's Monday, Aug 11
-  first_day_of_sem: new Date(2020, 7, 10),
+  first_day_of_sem: new Date(2021, 1, 11),
   // In case you want to customize the duties field for each activity
   // Do not modify the keys
   duties: {
     'Assignment Marking': 'Graded students\' assignments',
     'Consultation with students': 'Answered students questions',
-    'Laboratory': 'Conducted class via Zoom',
+    'Laboratory': 'Conducted class at i3',
   },
 
   // The following function should return a list of claim objects that you want to make
@@ -50,25 +50,34 @@ var config = {
       activities_list.push({
         activity_type: Claim.LAB,
         week: week,
-        day: 'THURSDAY',
-        start_time: '1600',
-        end_time: '1800'
+        day: 'FRIDAY',
+        start_time: '0800',
+        end_time: '1000'
       });
       activities_list.push({
         activity_type: Claim.CONSULTATION,
         week: week,
-        day: 'THURSDAY',
-        start_time: '1800',
-        end_time: '1900'
+        day: 'FRIDAY',
+        start_time: '1000',
+        end_time: '1100'
       });
-      activities_list.push({
-        activity_type: Claim.ASSIGNMENT_MARKING,
-        week: week,
-        day: 'TUESDAY',
-        start_time: '1500',
-        end_time: '1800'
-      });
+      if (week != 7 && week != 11 && week != 3) {
+        activities_list.push({
+          activity_type: Claim.ASSIGNMENT_MARKING,
+          week: week,
+          day: 'THURSDAY',
+          start_time: '1600',
+          end_time: '1800'
+        });
+      }
     }
+    activities_list.push({
+      activity_type: Claim.CONSULTATION,
+      week: 'RECESS',
+      day: 'FRIDAY',
+      start_time: '1000',
+      end_time: '1100'
+    });
 
     return activities_list;
   }
