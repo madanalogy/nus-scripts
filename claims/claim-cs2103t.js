@@ -30,7 +30,7 @@ var config = {
   // Format: YYYY/MM/DD
   // Note: Month is from 0-11, Date is from 1-31
   // This should be the semester's week 1. For AY14/15 Sem 1, it's Monday, Aug 11
-  first_day_of_sem: new Date(2020, 7, 10),
+  first_day_of_sem: new Date(2021, 0, 11),
   // In case you want to customize the duties field for each activity
   // Do not modify the keys
   duties: {
@@ -48,16 +48,16 @@ var config = {
       activities_list.push({
         activity_type: Claim.TUTORIAL,
         week: week,
-        day: 'MONDAY',
-        start_time: '1730',
-        end_time: '1830'
+        day: 'WEDNESDAY',
+        start_time: '1400',
+        end_time: '1500'
       });
       activities_list.push({
         activity_type: Claim.TUTORIAL,
         week: week,
-        day: 'WEDNESDAY',
-        start_time: '1600',
-        end_time: '1700'
+        day: 'MONDAY',
+        start_time: '1730',
+        end_time: '1830'
       });
     }
 
